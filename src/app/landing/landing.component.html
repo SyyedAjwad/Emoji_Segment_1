@@ -1,0 +1,141 @@
+<div class="segment-wrapper">
+  <div class="segment-inner">
+    <div class="segment-left-bar">
+      <div class="left-bar-top">
+        <div class="top-icon">
+          <img src="../../assets/6.png" alt="" />
+        </div>
+      </div>
+      <div class="left-bar-bot">
+        <div class="user-bell">
+          <img src="../../assets/Vector.svg" alt="" />
+        </div>
+
+        <div class="user-img">
+          <img src="../../assets/Jas Arora 1.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="segmnet-left-list">
+      <div class="left-list-heading">
+        <h1>Prospector</h1>
+      </div>
+
+      <div class="left-list-input">
+        <input
+          type="text"
+          placeholder="Search for a table or a segment"
+          class="input-list"
+        />
+      </div>
+
+      <div class="left-list-segment">
+        <div class="segment-heading">
+          <h3>SEGMENTS</h3>
+        </div>
+
+        <ul class="segment-list-inner">
+          <li *ngFor="let segment of SegmentArr">
+            <a href="">
+              <ngx-emoji [emoji]="segment.Icon" size="16"></ngx-emoji> &nbsp;
+              {{ segment.Name }}
+            </a>
+          </li>
+          <!-- <li>
+            <a href="">
+              <img src="../../assets/hand.svg" alt="" /> &nbsp; Segment 1
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <img src="../../assets/hand.svg" alt="" /> &nbsp; Segment 1
+            </a>
+          </li> -->
+        </ul>
+      </div>
+
+      <div class="add-segment">
+        <button class="add-seg" (click)="addSegment()">+ Add a segment</button>
+      </div>
+    </div>
+    <div class="segment-mid-sec">
+      <div class="mid-topbar">
+        <div class="icons"><h2>Assignment is Submitted By Syed Ajwad</h2></div>
+      </div>
+
+      <div class="mid-segmet-section">
+        <div class="first-segment" *ngFor="let segment of SegmentArr">
+          <div class="segment-heading">
+            <ngx-emoji [emoji]="segment.Icon" size="16"></ngx-emoji> &nbsp;
+            &nbsp;
+            <h2>{{ segment.Name }}</h2>
+            &nbsp;&nbsp;
+            <img src="../../assets/arrow.svg" alt="" />
+          </div>
+
+          <div class="segment-boxes">
+            <div class="add-segment-box">
+              <div class="segment-box" (click)="addTable(segment.id)">
+                <img src="../../assets/Vector@2x.svg" alt="" />
+              </div>
+              <!-- <app-square-box></app-square-box> -->
+            </div>
+
+            <div class="add-segment-box" *ngFor="let table of segment.entries">
+              <div
+                class="segment-box-add ml-left"
+                [style.border]="'2px solid ' + table.Color"
+              >
+                <ngx-emoji [emoji]="table.Icon" size="16"></ngx-emoji>
+              </div>
+              <div class="segment-head">
+                <h5>{{ table.Name }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="first-segment">
+          <div class="segment-heading">
+            <img src="../../assets/hand.svg" alt="" /> &nbsp; &nbsp;
+            <h2>Segment 2</h2>
+            &nbsp;&nbsp;
+            <img src="../../assets/arrow.svg" alt="" />
+          </div>
+
+          <div class="add-segment-box">
+            <div class="segment-box-sec">
+              <svg
+                width="81"
+                height="81"
+                viewBox="0 0 81 81"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="1.81113"
+                  y="1.94794"
+                  width="78"
+                  height="78"
+                  rx="9"
+                  stroke="#1BB157"
+                  stroke-width="2"
+                />
+              </svg>
+
+              <div class="box-top">
+                <img src="../../assets/Ellipse 4.svg" alt="" />
+              </div>
+              <div class="center-icon">
+                <img src="../../assets/hand.svg" alt="" />
+              </div>
+            </div>
+            <div class="segment-box-sec">
+                            <img src="../../assets/sec.svg" alt="">
+                        </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

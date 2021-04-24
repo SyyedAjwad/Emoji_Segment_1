@@ -1,0 +1,128 @@
+<!-- add-table -->
+
+<div class="add-segment-table" *ngIf="showTable">
+  <div class="add-table-inner">
+    <div class="table-top">
+      <div class="left-heading">
+        <h3>Add a table</h3>
+      </div>
+
+      <div class="right-close" (click)="closeTableModal()">
+        <a href="" class="close-icon">
+          <img src="../../assets/close.svg" alt="" />
+        </a>
+      </div>
+    </div>
+
+    <div class="segment-input">
+      <div class="input-sec">
+        <label for="">Name*</label>
+        <input [(ngModel)]="EmojiName" name="Emoji" id="" class="input-seg" />
+      </div>
+
+      <div class="input-sec">
+        <div class="selectbox">
+          <label for="">Icon</label>
+          <div class="select-box" (click)="showIconPicker()">
+            <span *ngIf="selectedIcon.length == 0">Select icon</span>
+            <ngx-emoji [emoji]="selectedIcon" size="16"></ngx-emoji>
+          </div>
+
+          <div class="select-inner" *ngIf="showPicker">
+            <emoji-mart (emojiClick)="addEmoji($event)"></emoji-mart>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-sec">
+        <div class="selectbox">
+          <label for="">Color</label>
+          <div class="select-box" (click)="showColor()">
+            <span *ngIf="expression">Select Color</span>
+            <span *ngIf="colorPreview == false">Select Color</span>
+            <div
+              *ngIf="colorPreview == true"
+              class="circle1 previewCircle"
+              (click)="selectedColor(color)"
+              [ngStyle]="{ background: selectedcolor }"
+            ></div>
+          </div>
+          <div class="select-inner-1" *ngIf="showColorPicker">
+            <div class="colors" *ngFor="let color of colorPalette">
+              <div
+                class="circle"
+                (click)="selectedColor(color)"
+                [ngStyle]="{ background: color }"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-btn">
+      <button class="table-btn add" (click)="submitTable()">Add</button>
+      <button class="table-btn cancel" (click)="closeTableModal()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Segment -->
+
+<div class="add-segment-table" *ngIf="showSegment">
+  <div class="add-table-inner">
+    <div class="table-top">
+      <div class="left-heading">
+        <h3>Add a Segment</h3>
+      </div>
+
+      <div class="right-close" (click)="closeSegmentModal()">
+        <a href="" class="close-icon">
+          <img src="../../assets/close.svg" alt="" />
+        </a>
+      </div>
+    </div>
+
+    <div class="segment-input">
+      <div class="input-sec">
+        <label for="">Name*</label>
+        <input [(ngModel)]="SegmentName" id="" class="input-seg" />
+      </div>
+
+      <div class="input-sec">
+        <div class="selectbox">
+          <label for="">Icon</label>
+          <div class="select-box" (click)="showIconPicker()">
+            <span *ngIf="selectedIcon.length == 0">Select icon</span>
+            <ngx-emoji [emoji]="selectedIcon" size="16"></ngx-emoji>
+          </div>
+
+          <div class="select-inner" *ngIf="showPicker">
+            <emoji-mart (emojiClick)="addEmoji($event)"></emoji-mart>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-sec">
+        <div class="selectbox">
+          <label for="">Description</label>
+          <Textarea
+            class="segment-text"
+            (keyup)="getVal($event)"
+            name="Description"
+          ></Textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-btn">
+      <button class="table-btn add" (click)="submitSegment()">Add</button>
+      <button class="table-btn cancel" (click)="closeSegmentModal()">
+        Cancel
+      </button>
+      {{ showTb }}
+    </div>
+  </div>
+</div>

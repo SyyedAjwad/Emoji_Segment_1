@@ -3,21 +3,33 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProspectorContainerComponent } from './prospector-container/prospector-container.component';
-import { MainViewComponent } from './main-view/main-view.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
+
 import {MatCardModule} from '@angular/material/card';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import {MatSelectModule} from '@angular/material/select';
+import{BrowserAnimationsModule}from '@angular/platform-browser/animations';
+
+import { CustomModalComponent } from './custom-modal/custom-modal.component';
+import { LandingComponent } from './landing/landing.component';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ProspectorContainerComponent,
-    MainViewComponent,
-    SideBarComponent
+   
+    CustomModalComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatCardModule
+    MatCardModule,
+    PickerModule,
+    EmojiModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
